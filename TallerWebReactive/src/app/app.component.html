@@ -1,3 +1,24 @@
-<app-search-usuairo></app-search-usuairo>
-<app-show-usuario></app-show-usuario>
-<app-post-usuario></app-post-usuario>
+<div class="container">
+    <div class="row mt-4">
+      <div class="col-md-6 offset-md-3">
+        <form (ngSubmit)="onSubmit()">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search user..." [(ngModel)]="searchQuery" name="searchQuery">
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-4" *ngIf="encontrado == false">
+    <p class="alert alert-danger">no encontrado</p>
+  </div>
+  <div class="container mt-4" *ngIf="encontrado">
+    <app-show-usuario [user2]="usuarioEnviar"></app-show-usuario>
+    <app-post-usuario></app-post-usuario>
+  </div>
+  
+

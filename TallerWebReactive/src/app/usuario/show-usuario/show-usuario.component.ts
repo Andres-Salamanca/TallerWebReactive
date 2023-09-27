@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-show-usuario',
@@ -6,6 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./show-usuario.component.css']
 })
 export class ShowUsuarioComponent {
+  @Input()
+  user2:Usuario = {
+    firstName: ' ',
+    lastName: '',
+    maidenName: '',
+    age:0 ,
+    gender: '',
+    email: '',
+    phone: '',
+    id:0
+  };
   user = {
     firstName: 'Terry',
     lastName: 'Medhurst',

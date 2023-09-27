@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-search-usuairo',
@@ -7,8 +10,11 @@ import { Component } from '@angular/core';
 })
 export class SearchUsuairoComponent {
   searchQuery: string = '';
-onSubmit() {
-  console.log('Búsqueda realizada:', this.searchQuery);
-}
+ 
+  @Output()
+
+  onSubmit() {
+ 
+  }
 
 }
