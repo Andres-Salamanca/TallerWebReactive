@@ -18,7 +18,7 @@
   </div>
   <div class="container mt-4" *ngIf="encontrado">
     <app-show-usuario [user2]="usuarioEnviar"></app-show-usuario>
-    <app-post-usuario></app-post-usuario>
+    <app-post-usuario  [misPublicaiones]="publicaciones" *ngIf="publicaciones"></app-post-usuario>
   </div>
   
 

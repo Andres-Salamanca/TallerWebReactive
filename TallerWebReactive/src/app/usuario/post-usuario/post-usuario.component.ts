@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Post } from 'src/app/model/post';
 
 @Component({
   selector: 'app-post-usuario',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./post-usuario.component.css']
 })
 export class PostUsuarioComponent {
+
+  
+  @Input()
+  misPublicaiones!: Post[];
+
+ngOnInit(){
+  console.log("mis publi + " + this.misPublicaiones);
+  
+}
+  
 
 }
