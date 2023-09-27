@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
-import { Observable, map, mergeMap, of } from 'rxjs';
+import { Observable, from, map, mergeMap, of, scan } from 'rxjs';
 import { Usuario } from './model/usuario';
 import { Post } from './model/post';
 
@@ -71,13 +71,13 @@ export class AppComponent {
       }
       ),map((posts: any) => {
         // Here, you can process the list of posts as needed  
-        console.log(posts["posts"]);
-        this.publicaciones.push(posts["posts"])
-        return posts;
+        this.publicaciones =posts["posts"]
+
+        return posts["posts"];
       })
     ).subscribe((postInfo: any) => (console.log(postInfo) ));
 
-    console.log(this.publicaciones)
+    
 
     // this.http.get(this.ROOT_URL+'/users/filter?key=username&value=' + this.searchQuery).subscribe((userInfo: any)=>{
     //   //this.usuario = userInfo;

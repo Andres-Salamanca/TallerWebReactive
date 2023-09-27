@@ -10,10 +10,13 @@ export class PostUsuarioComponent {
 
   
   @Input()
-  misPublicaiones!: Post[];
+  misPublicaiones: Post[] = [];
 
 ngOnInit(){
-  console.log("mis publi + " + this.misPublicaiones);
+  console.log("mis publi + " );
+  console.log(this.misPublicaiones);
+  console.log("publi");
+  
   
 }
   

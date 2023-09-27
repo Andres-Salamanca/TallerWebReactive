@@ -1,1 +1,14 @@
-<p>post-usuario works!</p>
+<div class="container">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let publicacion of misPublicaiones">
+        <h2>{{ publicacion.title }}</h2>
+        <p>{{ publicacion.body }}</p>
+        <p><strong>Usuario ID:</strong> {{ publicacion.userId }}</p>
+        <p><strong>Reacciones:</strong> {{ publicacion.reactions }}</p>
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item" *ngFor="let tag of publicacion.tags">{{ tag }}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
