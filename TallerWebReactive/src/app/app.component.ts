@@ -69,14 +69,26 @@ export class AppComponent {
       map((posts: any) => {
         // Here, you can process the list of posts as needed
         console.log(posts["posts"]);
-        this.publicaciones = posts["posts"];
+        this.publicaciones =posts["posts"];
     
         // Extract post IDs and return as an array
         const postIDs = posts["posts"].map((post: any) => post.id);
     
+        // Initialize an object to store comments for each post
+        const postsWithComments: { [postId: number]: Post } = {};
+    
+        // Initialize an array of comments for each post
+        postIDs.forEach((postId: number) => {
+          postsWithComments[postId] = {
+            ...posts["posts"].find((post: any) => post.id === postId), // Copy the post details
+            nombresComentario: [], // Initialize the comments array
+          };
+        });
+    
         return {
           posts: posts["posts"],
           postIDs: postIDs, // Add this line to include post IDs in the result
+          postsWithComments: postsWithComments, // Include the postsWithComments object
         };
       }),
       mergeMap((postInfo: any) => {
@@ -91,19 +103,26 @@ export class AppComponent {
             // Here, you can process the commentsList as needed
             console.log("Comments for each post:", commentsList);
     
-            // Add the comments to the postInfo object
+            // Match comments with their corresponding posts
+            commentsList.forEach((comments: Comment[], index: number) => {
+              const postId = postInfo.postIDs[index];
+              postInfo.postsWithComments[postId].nombresComentario = comments;
+            });
+    
+            // Convert the object of postsWithComments into an array of posts
+            const postsArray: Post[] = Object.values(postInfo.postsWithComments);
+    
             return {
               posts: postInfo.posts,
               postIDs: postInfo.postIDs,
-              comments: commentsList,
+              postsWithComments: postsArray, // Convert the object to an array
             };
           })
         );
       })
     ).subscribe((finalData: any) => {
-      console.log("final")
-      console.log(finalData);
-      // finalData contains posts, postIDs, and comments for each post
+      console.log(finalData["postsWithComments"]);
+      // finalData contains posts, postIDs, and postsWithComments
     });
 
     

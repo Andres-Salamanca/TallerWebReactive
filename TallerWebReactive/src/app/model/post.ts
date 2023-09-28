@@ -5,5 +5,5 @@ export interface Post {
     userId: number;
     tags: string[];
     reactions: number;
-    nombresComentario:string[];
+    nombresComentario: Comment[];
 }
