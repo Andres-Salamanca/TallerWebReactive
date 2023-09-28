@@ -72,7 +72,7 @@ export class AppComponent {
       map((posts: any) => {
         // Here, you can process the list of posts as needed
         console.log(posts["posts"]);
-        this.publicaciones =posts["posts"];
+        //this.publicaciones =posts["posts"];
     
         // Extract post IDs and return as an array
         const postIDs = posts["posts"].map((post: any) => post.id);
