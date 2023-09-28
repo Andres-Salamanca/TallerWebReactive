@@ -12,10 +12,16 @@ export class PostUsuarioComponent {
   @Input()
   misPublicaiones: Post[] = [];
 
+  @Input()
+  finalData: any = {};
+
 ngOnInit(){
   console.log("mis publi + " );
   console.log(this.misPublicaiones);
   console.log("publi");
+  console.log(this.finalData);
+  console.log("final");
+  
   
   
 }

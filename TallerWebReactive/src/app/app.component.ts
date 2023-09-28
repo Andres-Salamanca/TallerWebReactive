@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Observable, forkJoin, from, map, mergeMap, of, scan } from 'rxjs';
 import { Usuario } from './model/usuario';
 import { Post } from './model/post';
@@ -31,6 +31,9 @@ export class AppComponent {
   usuarioEnviar!:Usuario;
 
   encontrado!: boolean ;
+
+  
+  finalData2: any = {};
   
   constructor(private http:HttpClient){}
 
@@ -84,7 +87,7 @@ export class AppComponent {
             nombresComentario: [], // Initialize the comments array
           };
         });
-    
+        
         return {
           posts: posts["posts"],
           postIDs: postIDs, // Add this line to include post IDs in the result
@@ -111,7 +114,7 @@ export class AppComponent {
     
             // Convert the object of postsWithComments into an array of posts
             const postsArray: Post[] = Object.values(postInfo.postsWithComments);
-    
+            this.finalData2 = postsArray;
             return {
               posts: postInfo.posts,
               postIDs: postInfo.postIDs,
@@ -121,7 +124,13 @@ export class AppComponent {
         );
       })
     ).subscribe((finalData: any) => {
+      
+      this.finalData2 = finalData["postsWithComments"];
       console.log(finalData["postsWithComments"]);
+      console.log("ultimo");
+      
+      console.log(this.finalData2);
+      
       // finalData contains posts, postIDs, and postsWithComments
     });
 

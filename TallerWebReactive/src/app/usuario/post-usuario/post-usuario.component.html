@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let publicacion of misPublicaiones">
         <h2>{{ publicacion.title }}</h2>
@@ -12,3 +12,38 @@
     </ul>
   </div>
   
+
+  <h2> pasar</h2> -->
+
+  <!-- app.component.html -->
+<!-- app.component.html -->
+
+<div class="container mt-5" *ngIf="finalData ">
+  <h2 class="mb-4">Posts with Comments</h2>
+  <div *ngFor="let post of finalData" class="card mb-4">
+    <div class="card-body">
+      <h3 class="card-title">{{ post.title }}</h3>
+      <p class="card-text">{{ post.body }}</p>
+      <p><strong>Usuario ID:</strong> {{ post.userId }}</p>
+      <p><strong>Reacciones:</strong> {{ post.reactions }}</p>
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item" *ngFor="let tag of post.tags">{{ tag }}</li>
+      </ul>
+      <div *ngIf="post.nombresComentario.comments" style="margin: 12px;">
+        <h4 class="card-subtitle mb-2 text-muted">Comments:</h4>
+        <ul class="list-group">
+          <li *ngFor="let comment of post.nombresComentario.comments" class="list-group-item">
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>{{ comment.user.username }}:</strong> {{ comment.body }}
+              </div>
+              <div>
+                <small class="text-muted">Comment ID: {{ comment.id }}</small>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
