@@ -3,34 +3,33 @@
     <form #userForm="ngForm">
       <div class="form-group">
         <label for="firstName">First Name</label>
-        <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user2.firstName">
+        <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="user2.firstName" readonly>
       </div>
       <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user2.lastName">
+        <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="user2.lastName" readonly>
       </div>
       <div class="form-group">
         <label for="maidenName">Maiden Name</label>
-        <input type="text" class="form-control" id="maidenName" name="maidenName" [(ngModel)]="user2.maidenName">
+        <input type="text" class="form-control" id="maidenName" name="maidenName" [(ngModel)]="user2.maidenName" readonly>
       </div>
       <div class="form-group">
         <label for="age">Age</label>
-        <input type="number" class="form-control" id="age" name="age" [(ngModel)]="user2.age">
+        <input type="number" class="form-control" id="age" name="age" [(ngModel)]="user2.age" readonly>
       </div>
       <div class="form-group">
         <label for="gender">Gender</label>
-        <select class="form-control" id="gender" name="gender" [(ngModel)]="user2.gender">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
+        <input class="form-control" id="gender" name="gender" [(ngModel)]="user2.gender" readonly>
+          
+        
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user2.email">
+        <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user2.email" readonly>
       </div>
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="user2.phone">
+        <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="user2.phone" readonly>
       </div>
     </form>
   </div>

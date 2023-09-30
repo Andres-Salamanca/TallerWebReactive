@@ -25,7 +25,11 @@
       <h3 class="card-title">{{ post.title }}</h3>
       <p class="card-text">{{ post.body }}</p>
       <p><strong>Usuario ID:</strong> {{ post.userId }}</p>
-      <p><strong>Reacciones:</strong> {{ post.reactions }}</p>
+      <p>
+        <strong>Reacciones: {{ post.reactions }}</strong> 
+        <i class="fa-solid fa-heart" style="color: #d41616;"></i>
+      </p>
+
       <ul class="list-group list-group-horizontal">
         <li class="list-group-item" *ngFor="let tag of post.tags">{{ tag }}</li>
       </ul>
